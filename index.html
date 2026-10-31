@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080e18">
+<title>TrainRadar España · Mapa ferroviario en directo</title>
+<link rel="preconnect" href="https://tile.openstreetmap.org">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+ <a class="logo" href="#"><span class="logo-mark">T</span><span>TRAINRADAR<small>ESPAÑA</small></span></a>
+ <div class="top-center"><span class="live-dot"></span><span id="connection">CONECTANDO CON DATOS EN DIRECTO</span><span class="sep">·</span><span id="updated">--:--:--</span></div>
+ <button id="refresh" class="refresh">↻ <span>Actualizar</span></button>
+</header>
+<main>
+ <aside class="panel">
+  <div class="panel-head"><div><div class="eyebrow">CENTRO DE CONTROL</div><h1>Trenes en circulación</h1></div><span class="live-pill"><i></i> LIVE</span></div>
+  <div class="stats">
+   <div><strong id="total">—</strong><span>TRENES DETECTADOS</span></div>
+   <div><strong id="delayed">—</strong><span>CON RETRASO</span></div>
+  </div>
+  <label class="searchbox"><span>⌕</span><input id="search" placeholder="Número, origen o destino…"><kbd>⌘ K</kbd></label>
+  <div class="filters">
+   <button class="filter active" data-filter="all">Todos</button>
+   <button class="filter" data-filter="long_distance">Larga distancia</button>
+   <button class="filter" data-filter="commuter">Cercanías</button>
+  </div>
+  <div class="list-head"><span>FLOTA ACTUAL</span><span id="count-label">—</span></div>
+  <div id="train-list" class="train-list"><div class="loading"><span class="spinner"></span> Cargando posiciones ferroviarias…</div></div>
+  <div class="panel-foot">Datos orientativos · No es un servicio oficial</div>
+ </aside>
+ <section class="map-area">
+  <div id="map"></div>
+  <div class="map-tools"><button id="fit" title="Ver toda España">⌖ <span>España</span></button><button id="zoom-in">+</button><button id="zoom-out">−</button></div>
+  <div class="map-caption"><span class="live-dot"></span> POSICIONES GPS · ACTUALIZACIÓN AUTOMÁTICA</div>
+  <div id="detail" class="detail hidden"></div>
+  <div class="map-credit">© OpenStreetMap · Datos: Renfe / ADIF vía <a href="https://radardetrenes.com" target="_blank" rel="noopener">RadarDeTrenes</a></div>
+ </section>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body></html>
